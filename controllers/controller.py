@@ -3,10 +3,12 @@ from app import app
 from models.Game import Game
 from models.Player import Player
 
+winner = ""
 
-@app.route("/")
-def index():
-    return render_template("index.html")
+
+@app.route("/welcome")
+def welcome():
+    return render_template("welcome.html")
 
 
 @app.route("/<weapon_one>/<weapon_two>")
@@ -19,8 +21,8 @@ def pass_choices(weapon_one, weapon_two):
     winner = Game.who_wins(new_game)
 
     if one_choice and two_choice not in ["rock", "paper", "scissors"]:
-        return render_template("index.html")
+        return render_template("welcome.html")
     elif winner == None:
-        return render_template("index.html")
+        return render_template("welcome.html")
     else:
-        return winner
+        return render_template("winner.html", result=winner)
