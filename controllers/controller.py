@@ -29,7 +29,9 @@ def pass_choices(weapon_one, weapon_two):
     elif result == None:
         return render_template("welcome.html")
     else:
-        return render_template("index.html", result=result)
+        return render_template(
+            "index.html", result=result, weapon=one_choice, cpu_move=two_choice
+        )
 
 
 @app.route("/play")
