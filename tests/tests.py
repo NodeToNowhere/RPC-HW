@@ -1,4 +1,7 @@
+from math import exp
+from random import choices
 import unittest
+import random
 
 from controllers import controller
 from models.Player import Player
@@ -43,14 +46,28 @@ class TestRPS(unittest.TestCase):
 
     def test_for_explicit_winner(self):
 
-        expected = "Paper wraps rock! Player two wins."
+        expected = 'Paper wraps rock! %s wins.' % self.player_two.name
         actual = Game.who_wins(self.game_one)
 
         self.assertEqual(expected, actual)
 
     def test_for_implicit_winner(self):
 
-        expected = "Rock smashes scissors! Player one wins."
+        expected = 'Rock smashes scissors! %s wins.' % self.player_one.name
         actual = Game.who_wins(self.game_three)
 
         self.assertEqual(expected, actual)
+
+    def test_for_random_cpu_move(self):
+        choices = ["rock", "paper", "scissors"]
+
+        expected = True
+        
+        actual = Game.cpu_move() in choices
+        
+        self.assertEqual(expected, actual)
+
+    
+
+
+# make sure to look at flask testing

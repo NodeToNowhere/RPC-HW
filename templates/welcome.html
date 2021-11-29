@@ -1,9 +1,10 @@
 {% extends 'base.html' %} {% block content %}
-<h1 id="header-main">Welcome to RPS!</h1>
+<h1 id="header-welcome">Welcome to RPS!</h1>
 <br>
 <hr>
 <br>
-<h3>The rulesof RPS</h2>
+<div id="rules-container">
+<h3 >The rules of RPS</h2>
 <p>
     The game is played where players deliver hand signals that will represent the elements of the game; rock, paper and scissors. The outcome of the game is determined by 3 simple rules:
 </p>
@@ -22,6 +23,6 @@
             Paper wins against rock
         </li>
     </ul>
-
+</div>
 
 {% endblock content %}

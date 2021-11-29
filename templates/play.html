@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% block content %}
+<h1 id="header-play">Test your RPS skills against the computer.</h1>
+<br />
+<hr />
+<br />
+<div id="form-container">
+  <form action="/play/result" method="post">
+    <label for="name">Enter your name warrior!</label>
+    <input type="text" name="player_name" id="name" />
+    <label for="weapon">Choose Your Weapon!</label>
+    <select name="weapon_one" id="weapon">
+      <option value="Rock">Rock</option>
+      <option value="Paper">Paper</option>
+      <option value="Scissors">Scissors</option>
+    </select>
+    <div id="submit-button">
+      <input type="submit" value="To Battle!" />
+    </div>
+  </form>
+</div>
+
+{% endblock content %}

@@ -1,20 +1,26 @@
-<html>
+<html lang="en">
   <head>
-    <title>Base title</title>
+    <title>RPS!</title>
+    <meta charset="UTF-8" name="Rock Paper Scissors" content="RPS with Flask" />
     <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <link rel="stylesheet" href="/static/main.css" />
   </head>
   <body>
-    <nav>
-      <ul>
-        <li><a href="/welcome">Rock Paper Scissors!</a></li>
-      </ul>
-      <ul>
-        <li><a href="/play">Play The Computer</a></li>
-      </ul>
-      <ul>
-        <li><a href="/rock/scissors">Test Roll</a></li>
-      </ul>
-    </nav>
+    <div id="link-container">
+      <nav>
+        <ul>
+          <li><a href="/welcome">Rock Paper Scissors!</a></li>
+        </ul>
+        <ul>
+          <li><a href="/play">Play The Computer</a></li>
+        </ul>
+        <ul>
+          <form action="/index">
+            <li><a type="submit" href="/index">Test Roll</a></li>
+          </form>
+        </ul>
+      </nav>
+    </div>
     <hr />
     {% block content %}
     <!-- Variable content goes here -->
