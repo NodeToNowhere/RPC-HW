@@ -39,11 +39,10 @@ def play():
 
 @app.route("/play/result", methods=["POST"])
 def play_vs_cpu():
-    cpu_move = Game.cpu_move()
     one_choice = request.form["weapon_one"].lower()
     one_name = request.form["player_name"].lower()
     player_one = Player(one_name, one_choice)
-    player_two = Player("Death Bot 3000", cpu_move)
+    player_two = Player("Death Bot 3000", Game.cpu_move())
     new_game = Game(player_one, player_two)
     result = Game.who_wins(new_game)
     if result == None:
@@ -55,7 +54,7 @@ def play_vs_cpu():
             name=one_name,
             cpu=player_two.name,
             weapon=one_choice,
-            cpu_move=cpu_move,
+            cpu_move=player_two.choice,
         )
 
 
@@ -64,7 +63,6 @@ def random_roll():
     one = Player("You", Game.cpu_move())
     two = Player("They", Game.cpu_move())
     game = Game(one, two)
-    result = Game.who_wins(game)
     return render_template(
         "index.html", result=Game.who_wins(game), weapon=one.choice, cpu_move=two.choice
     )
